@@ -1,0 +1,15 @@
+﻿"Lab4Task4.exe" (Win32). Загружено "C:\Users\papie\Desktop\Vce lab C\Lab4\Lab4Task4\x64\Debug\Lab4Task4.exe". Символы загружены.
+"Lab4Task4.exe" (Win32). Загружено "C:\Windows\System32\ntdll.dll". 
+"Lab4Task4.exe" (Win32). Загружено "C:\Windows\System32\kernel32.dll". 
+"Lab4Task4.exe" (Win32). Загружено "C:\Windows\System32\KernelBase.dll". 
+"Lab4Task4.exe" (Win32). Загружено "C:\Windows\System32\msvcp140d.dll". 
+"Lab4Task4.exe" (Win32). Загружено "C:\Windows\System32\vcruntime140d.dll". 
+"Lab4Task4.exe" (Win32). Загружено "C:\Windows\System32\vcruntime140_1d.dll". 
+"Lab4Task4.exe" (Win32). Загружено "C:\Windows\System32\ucrtbased.dll". 
+Поток 0x15dc завершился с кодом 0 (0x0).
+"Lab4Task4.exe" (Win32). Загружено "C:\Windows\System32\kernel.appcore.dll". 
+"Lab4Task4.exe" (Win32). Загружено "C:\Windows\System32\msvcrt.dll". 
+"Lab4Task4.exe" (Win32). Загружено "C:\Windows\System32\rpcrt4.dll". 
+Поток 0x1e40 завершился с кодом 0 (0x0).
+Поток 0x3aa0 завершился с кодом 0 (0x0).
+Программа "[21080] Lab4Task4.exe" завершилась с кодом 0 (0x0).

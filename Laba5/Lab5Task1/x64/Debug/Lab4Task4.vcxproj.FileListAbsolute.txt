@@ -1,0 +1,3 @@
+C:\Users\papie\Desktop\Vce lab C\Lab4\Lab4Task4\x64\Debug\Lab4Task4.exe
+C:\Users\papie\Desktop\Vce lab C\Lab5\Lab4Task4\x64\Debug\Lab5Task1.exe
+C:\Users\papie\Desktop\Vce lab C\Lab5\Lab5Task1\x64\Debug\Lab5Task1.exe

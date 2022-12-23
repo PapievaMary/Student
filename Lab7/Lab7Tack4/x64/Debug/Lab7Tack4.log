@@ -1,0 +1,28 @@
+﻿  Lab7Tack4.cpp
+C:\Users\papie\Desktop\Vce lab C\Lab7\Lab7Tack4\Lab7Tack4.cpp(38,19): warning C4305: аргумент: усечение из "double" в "_Ty"
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\papie\Desktop\Vce lab C\Lab7\Lab7Tack4\Lab7Tack4.cpp(39,19): warning C4305: аргумент: усечение из "double" в "_Ty"
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\papie\Desktop\Vce lab C\Lab7\Lab7Tack4\Lab7Tack4.cpp(40,18): warning C4305: аргумент: усечение из "double" в "_Ty"
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\papie\Desktop\Vce lab C\Lab7\Lab7Tack4\Lab7Tack4.cpp(43,49): warning C4305: инициализация: усечение из "double" в "_Ty"
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\papie\Desktop\Vce lab C\Lab7\Lab7Tack4\Lab7Tack4.cpp(46,15): warning C4305: =: усечение из "double" в "_Ty"
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\papie\Desktop\Vce lab C\Lab7\Lab7Tack4\Lab7Tack4.cpp(49,11): warning C4101: g: неиспользованная локальная переменная
+  Lab7Tack4.vcxproj -> C:\Users\papie\Desktop\Vce lab C\Lab7\Lab7Tack4\x64\Debug\Lab7Tack4.exe

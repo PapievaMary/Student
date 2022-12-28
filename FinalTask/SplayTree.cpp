@@ -14,35 +14,6 @@ NodePtr SplayTree::searchTreeHelper(NodePtr node, int key) {
 	return searchTreeHelper(node->right, key);
 }
 
-void SplayTree::deleteNodeHelper(NodePtr node, int key) {
-	NodePtr x = nullptr;
-	NodePtr t, s;
-	while (node != nullptr) {
-		if (node->data == key) {
-			x = node;
-		}
-
-		if (node->data <= key) {
-			node = node->right;
-		}
-		else {
-			node = node->left;
-		}
-	}
-
-	if (x == nullptr) {
-		cout << "Couldn't find key in the tree" << endl;
-		return;
-	}
-	split(x, s, t); // split the tree
-	if (s->left) { // remove x
-		s->left->parent = nullptr;
-	}
-	root = join(s->left, t);
-	delete(s);
-	s = nullptr;
-}
-
 void SplayTree::printHelper(NodePtr root, string indent, bool last) {
 	// print the tree structure on the screen
 	if (root != nullptr) {
@@ -172,10 +143,6 @@ void SplayTree::split(NodePtr& x, NodePtr& s, NodePtr& t) {
 	x = nullptr;
 }
 
-SplayTree::SplayTree() {
-		root = nullptr;
-	}
-
 	// search the tree for the key k
 	// and return the corresponding node
 	Node* SplayTree::searchTree(int k) {
@@ -184,14 +151,6 @@ SplayTree::SplayTree() {
 			splay(x);
 		}
 		return x;
-	}
-
-	// find the node with the minimum key
-	NodePtr SplayTree::minimum(NodePtr node) {
-		while (node->left != nullptr) {
-			node = node->left;
-		}
-		return node;
 	}
 
 	// find the node with the maximum key
@@ -222,7 +181,6 @@ SplayTree::SplayTree() {
 				x = x->right;
 			}
 		}
-
 		// y is parent of x
 		node->parent = y;
 		if (y == nullptr) {
@@ -234,20 +192,40 @@ SplayTree::SplayTree() {
 		else {
 			y->right = node;
 		}
-
 		// splay the node
 		splay(node);
 	}
 
-	NodePtr SplayTree::getRoot() {
-		return this->root;
-	}
-
 	// delete the node from the tree
-	void SplayTree::deleteNode(int data) {
-		deleteNodeHelper(this->root, data);
-	}
+	void SplayTree::deleteNode(int key) {
+		NodePtr x = nullptr;
+		NodePtr t, s;
+		NodePtr node = this->root;
+		while (node != nullptr) {
+			if (node->data == key) {
+				x = node;
+			}
 
+			if (node->data <= key) {
+				node = node->right;
+			}
+			else {
+				node = node->left;
+			}
+		}
+
+		if (x == nullptr) {
+			cout << "Couldn't find key in the tree" << endl;
+			return;
+		}
+		split(x, s, t); // split the tree
+		if (s->left) { // remove x
+			s->left->parent = nullptr;
+		}
+		root = join(s->left, t);
+		delete(s);
+		s = nullptr;
+	}
 	// print the tree structure on the screen
 	void SplayTree::prettyPrint() {
 		printHelper(this->root, "", true);

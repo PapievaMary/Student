@@ -3,31 +3,6 @@
 #include <iostream>
 using namespace std;
 
-
-void SplayTree::preOrderHelper(NodePtr node) {
-	if (node != nullptr) {
-		cout << node->data << " ";
-		preOrderHelper(node->left);
-		preOrderHelper(node->right);
-	}
-}
-
-void SplayTree::inOrderHelper(NodePtr node) {
-	if (node != nullptr) {
-		inOrderHelper(node->left);
-		cout << node->data << " ";
-		inOrderHelper(node->right);
-	}
-}
-
-void SplayTree::postOrderHelper(NodePtr node) {
-	if (node != nullptr) {
-		postOrderHelper(node->left);
-		postOrderHelper(node->right);
-		cout << node->data << " ";
-	}
-}
-
 NodePtr SplayTree::searchTreeHelper(NodePtr node, int key) {
 	if (node == nullptr || key == node->data) {
 		return node;
@@ -201,24 +176,6 @@ SplayTree::SplayTree() {
 		root = nullptr;
 	}
 
-	// Pre-Order traversal
-	// Node->Left Subtree->Right Subtree
-	void SplayTree::preorder() {
-		preOrderHelper(this->root);
-	}
-
-	// In-Order traversal
-	// Left Subtree -> Node -> Right Subtree
-	void SplayTree::inorder() {
-		inOrderHelper(this->root);
-	}
-
-	// Post-Order traversal
-	// Left Subtree -> Right Subtree -> Node
-	void SplayTree::postorder() {
-		postOrderHelper(this->root);
-	}
-
 	// search the tree for the key k
 	// and return the corresponding node
 	Node* SplayTree::searchTree(int k) {
@@ -243,43 +200,6 @@ SplayTree::SplayTree() {
 			node = node->right;
 		}
 		return node;
-	}
-
-	// find the successor of a given node
-	NodePtr SplayTree::successor(NodePtr x) {
-		// if the right subtree is not null,
-		// the successor is the leftmost node in the
-		// right subtree
-		if (x->right != nullptr) {
-			return minimum(x->right);
-		}
-
-		// else it is the lowest ancestor of x whose
-		// left child is also an ancestor of x.
-		NodePtr y = x->parent;
-		while (y != nullptr && x == y->right) {
-			x = y;
-			y = y->parent;
-		}
-		return y;
-	}
-
-	// find the predecessor of a given node
-	NodePtr SplayTree::predecessor(NodePtr x) {
-		// if the left subtree is not null,
-		// the predecessor is the rightmost node in the 
-		// left subtree
-		if (x->left != nullptr) {
-			return maximum(x->left);
-		}
-
-		NodePtr y = x->parent;
-		while (y != nullptr && x == y->left) {
-			x = y;
-			y = y->parent;
-		}
-
-		return y;
 	}
 
 	// insert the key to the tree in its appropriate position

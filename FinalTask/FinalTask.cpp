@@ -1,6 +1,5 @@
 ﻿#include <iostream>
-#include < string > 
-#include <vector>
+#include <string> 
 #include "Node.h"
 #include "SplayTree.h"
 using namespace std;

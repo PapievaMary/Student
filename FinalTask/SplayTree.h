@@ -11,9 +11,9 @@ private:
 	void printHelper(NodePtr root, string indent, bool last);
 	void leftRotate(NodePtr x);
 	void rightRotate(NodePtr x);
-	void splay(NodePtr x);//
-	NodePtr join(NodePtr s, NodePtr t);//
-	void split(NodePtr& x, NodePtr& s, NodePtr& t);//
+	void splay(NodePtr x);
+	NodePtr join(NodePtr s, NodePtr t);
+	void split(NodePtr& x, NodePtr& s, NodePtr& t);
 
 public:
 	Node* searchTree(int k)override;

@@ -15,7 +15,7 @@ NodePtr SplayTree::searchTreeHelper(NodePtr node, int key) {
 }
 
 void SplayTree::printHelper(NodePtr root, string indent, bool last) {
-	// print the tree structure on the screen
+
 	if (root != nullptr) {
 		cout << indent;
 		if (last) {
@@ -34,7 +34,6 @@ void SplayTree::printHelper(NodePtr root, string indent, bool last) {
 	}
 }
 
-// rotate left at node x
 void SplayTree::leftRotate(NodePtr x) {
 	NodePtr y = x->right;
 	x->right = y->left;
@@ -55,7 +54,6 @@ void SplayTree::leftRotate(NodePtr x) {
 	x->parent = y;
 }
 
-// rotate right at node x
 void SplayTree::rightRotate(NodePtr x) {
 	NodePtr y = x->left;
 	x->left = y->right;
@@ -76,48 +74,45 @@ void SplayTree::rightRotate(NodePtr x) {
 	x->parent = y;
 }
 
-// splaying
 void SplayTree::splay(NodePtr x) {
 	while (x->parent) {
 		if (!x->parent->parent) {
 			if (x == x->parent->left) {
-				// zig rotation
+				// zig
 				rightRotate(x->parent);
 			}
 			else {
-				// zag rotation
+				// zag
 				leftRotate(x->parent);
 			}
 		}
 		else if (x == x->parent->left && x->parent == x->parent->parent->left) {
-			// zig-zig rotation
+			// zig-zig
 			rightRotate(x->parent->parent);
 			rightRotate(x->parent);
 		}
 		else if (x == x->parent->right && x->parent == x->parent->parent->right) {
-			// zag-zag rotation
+			// zag-zag
 			leftRotate(x->parent->parent);
 			leftRotate(x->parent);
 		}
 		else if (x == x->parent->right && x->parent == x->parent->parent->left) {
-			// zig-zag rotation
+			// zig-zag
 			leftRotate(x->parent);
 			rightRotate(x->parent);
 		}
 		else {
-			// zag-zig rotation
+			// zag-zig
 			rightRotate(x->parent);
 			leftRotate(x->parent);
 		}
 	}
 }
 
-// joins two trees s and t
 NodePtr SplayTree::join(NodePtr s, NodePtr t) {
 	if (!s) {
 		return t;
 	}
-
 	if (!t) {
 		return s;
 	}
@@ -128,7 +123,6 @@ NodePtr SplayTree::join(NodePtr s, NodePtr t) {
 	return x;
 }
 
-// splits the tree into s and t
 void SplayTree::split(NodePtr& x, NodePtr& s, NodePtr& t) {
 	splay(x);
 	if (x->right) {
@@ -143,8 +137,6 @@ void SplayTree::split(NodePtr& x, NodePtr& s, NodePtr& t) {
 	x = nullptr;
 }
 
-	// search the tree for the key k
-	// and return the corresponding node
 	Node* SplayTree::searchTree(int k) {
 		Node* x = searchTreeHelper(this->root, k);
 		if (x) {
@@ -153,7 +145,6 @@ void SplayTree::split(NodePtr& x, NodePtr& s, NodePtr& t) {
 		return x;
 	}
 
-	// find the node with the maximum key
 	NodePtr SplayTree::maximum(NodePtr node) {
 		while (node->right != nullptr) {
 			node = node->right;
@@ -161,9 +152,7 @@ void SplayTree::split(NodePtr& x, NodePtr& s, NodePtr& t) {
 		return node;
 	}
 
-	// insert the key to the tree in its appropriate position
 	void SplayTree::insert(int key) {
-		// normal BST insert
 		NodePtr node = new SplayTree;
 		node->parent = nullptr;
 		node->left = nullptr;
@@ -181,7 +170,6 @@ void SplayTree::split(NodePtr& x, NodePtr& s, NodePtr& t) {
 				x = x->right;
 			}
 		}
-		// y is parent of x
 		node->parent = y;
 		if (y == nullptr) {
 			root = node;
@@ -192,11 +180,9 @@ void SplayTree::split(NodePtr& x, NodePtr& s, NodePtr& t) {
 		else {
 			y->right = node;
 		}
-		// splay the node
 		splay(node);
 	}
 
-	// delete the node from the tree
 	void SplayTree::deleteNode(int key) {
 		NodePtr x = nullptr;
 		NodePtr t, s;
@@ -218,15 +204,15 @@ void SplayTree::split(NodePtr& x, NodePtr& s, NodePtr& t) {
 			cout << "Couldn't find key in the tree" << endl;
 			return;
 		}
-		split(x, s, t); // split the tree
-		if (s->left) { // remove x
+		split(x, s, t);
+		if (s->left) {
 			s->left->parent = nullptr;
 		}
 		root = join(s->left, t);
 		delete(s);
 		s = nullptr;
 	}
-	// print the tree structure on the screen
+
 	void SplayTree::prettyPrint() {
 		printHelper(this->root, "", true);
 	}
